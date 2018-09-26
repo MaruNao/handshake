@@ -2,6 +2,38 @@
 <div class="container">
   <div class="row col s12">
     <h1>新規登録</h1>
-    <p>Find me in app/views/users/new.html.erb</p>
   </div>
+  <div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user,html: { novalidate: false }) do |f| %>
+    <%= render 'shared/error_messages' %>
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.label :name,"名前" %>
+        <%= f.text_field :name,:class => 'autocomplete col s9' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.label :email,"メール" %>
+        <%= f.email_field :email,:class => 'autocomplete col s9' %>
+        <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.label :password,"パスワード" %>
+        <%= f.password_field :password ,:class => 'autocomplete col s9'%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.label :password_confirmation,"同じパスワード" %>
+        <%= f.password_field :password_confirmation ,:class => 'autocomplete col s9'%>
+      </div>
+    </div>
+      <%= f.submit "新規登録", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
 </div>
